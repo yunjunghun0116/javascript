@@ -11,3 +11,27 @@ let newUserList = userList.map((user, index) => {
   });
 });
 console.log(newUserList);
+// arr.sort() : 함수객체자체를 바꿔버림
+let arr = [27, 8, 5, 13];
+let i = 0;
+arr.sort((a, b) => {
+  console.log(i++, "번째 체크", b, a);
+  return a - b;
+});
+console.log(arr);
+// arr.reduce() 인수로 함수를 받고, 누적계산값,현재값을 넣어주면된다.
+// arr.reduce((이전 누산값,현재 확인값)=>return 새로운값(누산값에 더해줄것),최초 prev의 값)
+// 아래 로직은 최초값 100에 27,8,5,13을 일일이 더해주는함수
+const result = arr.reduce((prev, cur) => {
+  return prev + cur;
+}, 100);
+console.log(result);
+
+/* reduce를 이용해 성인만 뽑아내는 기능 */
+let resultAdult = userList.reduce((prev, cur) => {
+  if (cur.age > 19) {
+    prev.push(cur.name);
+  }
+  return prev;
+}, []);
+console.log(resultAdult);
