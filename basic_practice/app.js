@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
 });
 app.post("/register", (req, res) => {
   const user = new User(req.body);
+
   user.save((err, userInfo) => {
     if (err)
       return res.json({
@@ -34,6 +35,7 @@ app.post("/register", (req, res) => {
       });
     return res.status(200).json({
       success: true,
+      user: userInfo,
     });
   });
 });
