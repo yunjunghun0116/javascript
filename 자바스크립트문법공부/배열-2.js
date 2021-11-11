@@ -35,3 +35,16 @@ let resultAdult = userList.reduce((prev, cur) => {
   return prev;
 }, []);
 console.log(resultAdult);
+
+const input = ["3", "21 Junkyu", "21 Dohyun", "20 Sunyoung"];
+const N = input.shift();
+console.log("n:", N);
+
+/* 문자열을 입력받았을때 빠르게 받아오는방법 */
+const line = "5\n5\n4\n3\n2\n1"; //입력값의 경우
+let [cnt, ...inputs] = line
+  .trim()
+  .split("\n")
+  .map((v) => Number(v));
+console.log(cnt);
+console.log(inputs);
